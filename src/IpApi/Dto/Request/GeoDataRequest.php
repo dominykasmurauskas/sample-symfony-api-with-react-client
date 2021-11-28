@@ -2,7 +2,7 @@
 
 namespace App\IpApi\Dto\Request;
 
-class GeodataRequest
+class GeoDataRequest
 {
     private string $ip;
 

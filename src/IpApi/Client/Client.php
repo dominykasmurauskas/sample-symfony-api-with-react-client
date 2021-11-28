@@ -2,8 +2,8 @@
 
 namespace App\IpApi\Client;
 
-use App\IpApi\Dto\Request\GeodataRequest;
-use App\IpApi\Dto\Response\GeodataResponse;
+use App\IpApi\Dto\Request\GeoDataRequest;
+use App\IpApi\Dto\Response\GeoDataResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Client
@@ -22,7 +22,7 @@ class Client
         $this->httpClient = $httpClient;
     }
 
-    public function getGeodata(GeodataRequest $geodataRequest): GeodataResponse
+    public function getGeodata(GeoDataRequest $geodataRequest): GeoDataResponse
     {
         $response = $this->httpClient->request(
             'GET',
@@ -31,7 +31,7 @@ class Client
 
         return $this->deserializer->deserialize(
             $response->getContent(),
-            GeodataResponse::class
+            GeoDataResponse::class
         );
     }
 }

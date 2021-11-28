@@ -2,7 +2,7 @@
 
 namespace App\IpApi\Dto\Response;
 
-class GeodataResponse
+class GeoDataResponse
 {
     private string $status;
     private string $country;
@@ -10,6 +10,7 @@ class GeodataResponse
     private string $region;
     private string $regionName;
     private string $city;
+    private string $query;
 
     public function __construct(
         string $status,
@@ -17,7 +18,8 @@ class GeodataResponse
         string $countryCode,
         string $region,
         string $regionName,
-        string $city
+        string $city,
+        string $query
     ) {
         $this->status = $status;
         $this->country = $country;
@@ -25,6 +27,7 @@ class GeodataResponse
         $this->region = $region;
         $this->regionName = $regionName;
         $this->city = $city;
+        $this->query = $query;
     }
 
     public function getStatus(): string
@@ -55,5 +58,10 @@ class GeodataResponse
     public function getCity(): string
     {
         return $this->city;
+    }
+
+    public function getQuery(): string
+    {
+        return $this->query;
     }
 }
