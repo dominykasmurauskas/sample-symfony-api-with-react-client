@@ -1,6 +1,6 @@
 <?php
 
-namespace App\News\Dto\Response;
+namespace App\NewsApi\Dto\Response;
 
 class TopHeadlinesResponse
 {

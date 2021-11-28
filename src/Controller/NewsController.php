@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\IpApi\IpApi;
-use App\News\News;
+use App\NewsApi\News;
 use App\RequestResolver\IpResolver;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\News\Dto\Request;
+namespace App\NewsApi\Dto\Request;
 
 class TopHeadlinesRequest
 {

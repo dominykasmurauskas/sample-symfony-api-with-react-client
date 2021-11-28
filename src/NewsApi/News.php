@@ -1,10 +1,10 @@
 <?php
 
-namespace App\News;
+namespace App\NewsApi;
 
-use App\News\Client\Client;
-use App\News\Transformer\TopHeadlinesRequestTransformer;
-use App\News\Transformer\TopHeadlinesResponseTransformer;
+use App\NewsApi\Client\Client;
+use App\NewsApi\Transformer\TopHeadlinesRequestTransformer;
+use App\NewsApi\Transformer\TopHeadlinesResponseTransformer;
 use App\PublicDto\News\TopHeadlinesResponse;
 
 class News

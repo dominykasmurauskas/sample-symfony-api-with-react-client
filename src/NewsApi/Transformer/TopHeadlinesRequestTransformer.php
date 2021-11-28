@@ -1,8 +1,8 @@
 <?php
 
-namespace App\News\Transformer;
+namespace App\NewsApi\Transformer;
 
-use App\News\Dto\Request\TopHeadlinesRequest;
+use App\NewsApi\Dto\Request\TopHeadlinesRequest;
 
 class TopHeadlinesRequestTransformer
 {

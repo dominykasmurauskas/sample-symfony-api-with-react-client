@@ -1,6 +1,6 @@
 <?php
 
-namespace App\News\Client;
+namespace App\NewsApi\Client;
 
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;

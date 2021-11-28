@@ -1,9 +1,9 @@
 <?php
 
-namespace App\News\Client;
+namespace App\NewsApi\Client;
 
-use App\News\Dto\Request\TopHeadlinesRequest;
-use App\News\Dto\Response\TopHeadlinesResponse;
+use App\NewsApi\Dto\Request\TopHeadlinesRequest;
+use App\NewsApi\Dto\Response\TopHeadlinesResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Client

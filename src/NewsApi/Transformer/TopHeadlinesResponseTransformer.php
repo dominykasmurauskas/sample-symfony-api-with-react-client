@@ -1,9 +1,9 @@
 <?php
 
-namespace App\News\Transformer;
+namespace App\NewsApi\Transformer;
 
-use App\News\Dto\Response\Article as InternalArticle;
-use App\News\Dto\Response\TopHeadlinesResponse as TopHeadlinesInternalResponse;
+use App\NewsApi\Dto\Response\Article as InternalArticle;
+use App\NewsApi\Dto\Response\TopHeadlinesResponse as TopHeadlinesInternalResponse;
 use App\PublicDto\News\Article;
 use App\PublicDto\News\TopHeadlinesResponse;
 
