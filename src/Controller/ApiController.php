@@ -2,14 +2,10 @@
 
 namespace App\Controller;
 
-use App\Controller\Annotation\ApiRoute;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @ApiRoute()
- */
 class ApiController extends BaseController
 {
     /**

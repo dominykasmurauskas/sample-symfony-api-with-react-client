@@ -21,11 +21,6 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event): void
     {
-        $request = $event->getRequest();
-        if($request->attributes->get('_is_api') !== true) {
-            return;
-        }
-
         $response = new JsonResponse(
             $this->serializer->serialize(['msg' => 'System error occured.'], 'json'),
             Response::HTTP_INTERNAL_SERVER_ERROR,
