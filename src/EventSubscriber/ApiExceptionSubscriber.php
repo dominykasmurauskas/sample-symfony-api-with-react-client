@@ -27,7 +27,7 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
         }
 
         $response = new JsonResponse(
-            $this->serializer->serialize(['System error occured.'], 'json'),
+            $this->serializer->serialize(['msg' => 'System error occured.'], 'json'),
             Response::HTTP_INTERNAL_SERVER_ERROR,
             [],
             true
