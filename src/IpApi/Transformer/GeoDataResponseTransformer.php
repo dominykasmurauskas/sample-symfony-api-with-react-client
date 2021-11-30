@@ -12,7 +12,8 @@ class GeoDataResponseTransformer
         return new GeoDataResponse(
             $geodataResponse->getStatus(),
             $geodataResponse->getCountryCode(),
-            $geodataResponse->getQuery()
+            $geodataResponse->getQuery(),
+            $geodataResponse->getCountry()
         );
     }
 }

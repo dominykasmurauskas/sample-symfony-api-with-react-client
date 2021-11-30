@@ -8,11 +8,17 @@ class CountryDetailsRequest
     private ?string $from;
     private ?string $to;
 
-    public function __construct(string $countrySlug, ?string $from, ?string $to)
+    public function __construct(?string $from, ?string $to)
     {
-        $this->countrySlug = $countrySlug;
         $this->from = $from;
         $this->to = $to;
+    }
+
+    public function setCountrySlug(string $countrySlug): self
+    {
+        $this->countrySlug = $countrySlug;
+
+        return $this;
     }
 
     public function getCountrySlug(): string

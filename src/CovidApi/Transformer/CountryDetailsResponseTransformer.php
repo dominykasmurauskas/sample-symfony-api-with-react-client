@@ -33,7 +33,7 @@ class CountryDetailsResponseTransformer
                 $internalDayStatistic->getConfirmed(),
                 $internalDayStatistic->getDeaths(),
                 $internalDayStatistic->getActive(),
-                $internalDayStatistic->getDate()
+                (new \DateTime($internalDayStatistic->getDate()))->format('Y-m-d')
             );
         }
 
