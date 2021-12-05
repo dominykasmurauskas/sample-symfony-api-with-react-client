@@ -13,17 +13,19 @@ export const Index: React.FC = () => {
   const [topHeadlines, setTopHeadlines] = useState<TopHeadlinesDto | null>(null);
 
   useEffect(() => {
+    setTopHeadlines(null);
+
     async function fetchData() {
       if (!IP) {
         setIP(await publicIp.v4());
       }
 
-      if (IP && !topHeadlines) {
+      if (IP) {
         setTopHeadlines(await fetchAndBuildTopHeadlines(IP));
       }
     }
     fetchData();
-  }, [topHeadlines, IP]);
+  }, [IP]);
 
   return (
     <Box className="page-content">

@@ -17,12 +17,11 @@ export const fetchAndBuildTopHeadlines = async (IP: string) => {
   const articles: ArticleDto[] = [];
 
   await fetch("https://127.0.0.1:8000/news", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       "X-User-Ip": IP,
-    },
-    credentials: 'include',
+    }
   })
     .then((data) => data.json())
     .then((jsonData) => {
@@ -38,7 +37,7 @@ export const fetchAndBuildTopHeadlines = async (IP: string) => {
 };
 
 export class DayStatisticsDto {
-  constructor(public confirmed: string, public deaths: string, public active: string, public date: string ) {}
+  constructor(public confirmed: string, public deaths: string, public date: string ) {}
 }
 
 export class CovidDetailsDto {
@@ -50,19 +49,19 @@ export const fetchAndBuildCovidStatistics = async (
     dateTo: string | null,
     IP: string
 ) => {
-  const request = { from: dateFrom, to: dateTo };
   const daysStatistics: DayStatisticsDto[] = [];
   let from = new Date();
   let to = new Date();
 
-  await fetch("https://127.0.0.1:8000/covid", {
-    method: "POST",
+  await fetch("https://127.0.0.1:8000/covid?" + new URLSearchParams({
+    from: dateFrom ?? '',
+    to: dateTo ?? ''
+  }), {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       "X-User-Ip": IP,
-    },
-    credentials: 'include',
-    body: JSON.stringify(request),
+    }
   })
       .then((data) => data.json())
       .then((jsonData) => {
@@ -70,8 +69,8 @@ export const fetchAndBuildCovidStatistics = async (
         to = jsonData.to;
 
         for (const jsonDataElement of jsonData.data) {
-          const { confirmed, deaths, active, date } = jsonDataElement;
-          const dayStatistics = new DayStatisticsDto(confirmed, deaths, active, date);
+          const { confirmed, deaths, date } = jsonDataElement;
+          const dayStatistics = new DayStatisticsDto(confirmed, deaths, date);
           daysStatistics.push(dayStatistics);
         }
       })
@@ -79,3 +78,4 @@ export const fetchAndBuildCovidStatistics = async (
 
   return new CovidDetailsDto(daysStatistics, from, to);
 };
+

@@ -11,7 +11,6 @@ class Client
     private const PATH_COUNTRY = 'country/';
     private const QUERY_PARAM_DATE_FROM = 'from';
     private const QUERY_PARAM_DATE_TO = 'to';
-    private const DATE_FORMAT = 'Y-m-d\TH:i:sP';
 
     private string $covidApiHost;
     private ResponseDeserializer $deserializer;

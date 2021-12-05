@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends BaseController
 {
     /**
-     * @Route("/news", methods={"POST"})
+     * @Route("/news", methods={"GET"})
      */
     public function getNews(Request $request, IpResolver $ipResolver, IpApi $ipApi, News $news): JsonResponse
     {

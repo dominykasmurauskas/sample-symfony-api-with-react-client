@@ -21,21 +21,6 @@ const confirmedCases = (dayStatistics: DayStatisticsDto[]) => {
     };
 }
 
-const activeCases = (dayStatistics: DayStatisticsDto[]) => {
-    return {
-        labels: dayStatistics.map((x) => x.date),
-        datasets: [
-            {
-                label: "Active",
-                data: dayStatistics.map((x) => Number(x.active)),
-                fill: false,
-                backgroundColor: "rgb(15, 16, 86)",
-                borderColor: "rgba(15, 16, 86, 0.2)",
-            }
-        ],
-    };
-}
-
 const deathCases = (dayStatistics: DayStatisticsDto[]) => {
     return {
         labels: dayStatistics.map((x) => x.date),
@@ -64,9 +49,6 @@ export const CovidStatistics: React.FC<CovidStatisticsProps> = (
             </Grid>
             <Grid item xs={12} md={6}>
                 <Line data={deathCases(dayStatistics)}/>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Line data={activeCases(dayStatistics)}/>
             </Grid>
         </Grid>
     );

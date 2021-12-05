@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CovidController extends BaseController
 {
     /**
-     * @Route("/covid", methods={"POST"})
+     * @Route("/covid", methods={"GET"})
      */
-    public function getGeoData(Request $request, CovidApi $covidApi, IpResolver $ipResolver, IpApi $ipApi): JsonResponse
+    public function getCovidStatistics(Request $request, CovidApi $covidApi, IpResolver $ipResolver, IpApi $ipApi): JsonResponse
     {
         $geoData = $ipApi->getGeodata($ipResolver->resolve($request));
-        $request = $this->buildRequestDto($request->getContent(), CountryDetailsRequest::class);
+        $request = new CountryDetailsRequest($request->get('from'), $request->get('to'));
         $request->setCountrySlug($geoData->getCountry());
 
         return $this->getJsonResponse(

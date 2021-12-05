@@ -6,14 +6,12 @@ class DayStatistics
 {
     private int $confirmed;
     private int $deaths;
-    private int $active;
     private string $date;
 
-    public function __construct(int $confirmed, int $deaths, int $active, string $date)
+    public function __construct(int $confirmed, int $deaths, string $date)
     {
         $this->confirmed = $confirmed;
         $this->deaths = $deaths;
-        $this->active = $active;
         $this->date = $date;
     }
 
@@ -25,11 +23,6 @@ class DayStatistics
     public function getDeaths(): int
     {
         return $this->deaths;
-    }
-
-    public function getActive(): int
-    {
-        return $this->active;
     }
 
     public function getDate(): string

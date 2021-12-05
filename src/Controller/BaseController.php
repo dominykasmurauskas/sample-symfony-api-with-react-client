@@ -18,6 +18,10 @@ class BaseController extends AbstractController
         $this->serializer = $serializer;
     }
 
+    /**
+     * It is not currently used anywhere, but it is a good example
+     * how request content can be serializer to DTOs.
+     */
     protected function buildRequestDto(string $content, string $class)
     {
         if (!$content) {
